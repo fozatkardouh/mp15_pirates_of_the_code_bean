@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>mp15</title>
+</head>
+<body>
+<h2>
+    Step 1: Find the mermaid
+</h2>
+<form th:action="@{/stepOne}" th:object="${steps}" method="get">
+    <button type="submit">Do it</button>
+</form>
+<h2>
+    Step 2: Get her tears
+</h2>
+<form th:if="${stepOne} == true" th:action="@{/stepTwo}" th:object="${steps}" method="get">
+    <button type="submit">Do it</button>
+</form>
+<h2>
+    Step 3: Find the challice
+</h2>
+<form th:if="${stepTwo} == true" th:action="@{/stepThree}" th:object="${steps}" method="get">
+    <button type="submit">Do it</button>
+</form>
+<h2>
+    Step 4: Drink the tear from the chalice
+</h2>
+<form th:if="${stepThree} == true" th:action="@{/stepFour}" th:object="${steps}" method="get">
+    <button type="submit">Do it</button>
+</form>
+<h1>
+    <span th:if="${stepFour} == true">
+        Game Over!!
+    </span>
+</h1>
+</body>
+</html>
